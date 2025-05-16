@@ -12,7 +12,7 @@
         /* Custom styles */
         body {
             padding-top: 56px;
-            background-color: #f8f9fa;
+            background-color: #d9a272;
         }
         .project-card {
             margin-bottom: 1.5rem;
@@ -91,7 +91,7 @@
                                     <li>Bob Coecke (Quantinuum - Chief Scientist and lead the Oxford-based Quantum-Compositional Intelligence team)</li>
                                 </ul>
                             </li>
-                            <li>Built and evaluated the performance of quantum RNNs using free fermionic circuits, allowing for classical simulation in
+                            <li>Built and evaluated the performance of quantum RNNs using both free fermionic circuits, allowing for classical simulation in
                                 polynomial resources, and fully quantum circuits.</li>
                             <li>Applied the QRNNs to NLP-based tasks (sentiment analysis, text generation, document similarity, as well as image classication).</li>
                             <li>Also tested the performance against classical RNNs.</li>
@@ -112,9 +112,7 @@
         <div class="card mb-4 shadow-sm">
             <div class="card-body">
                 <h5 class="card-title">Télécom Paris</h5>
-                <h6 class="card-subtitle mb-3 text-muted">MEng - Data Science and Theoretical Computer Science (2020-2024)
-                </h6>
-                Modules include:
+                <h6 class="card-subtitle mb-3 text-muted">MEng - Data Science and Theoretical Computer Science (2020-2024)</h6>
                 <ul>
                     <li>Machine Learning</li>
                     <li>Text Mining</li>
@@ -130,7 +128,6 @@
             <div class="card-body">
                 <h5 class="card-title">École Polytechnique</h5>
                 <h6 class="card-subtitle mb-3 text-muted">MSc - Mathematics and Computer Science (2017-2020)</h6>
-                Modules include:
                 <ul>
                     <li>Modules include:
                         <ul>
@@ -163,13 +160,25 @@
     <!-- Projects Section -->
     <section id="projects" class="container py-5">
         <h2>Projects</h2>
-        <div id="projects-container" class="row"></div>
+        <div class="row">
+            <!-- Specify only the projects you want here -->
+            <div class="col-md-4 mb-4">
+                <div class="card project-card h-100">
+                    <img src="images/project1.png" class="card-img-top" alt="Project One">
+                    <div class="card-body">
+                        <h5 class="card-title">Project One</h5>
+                        <p class="card-text">A short description of Project One.</p>
+                        <a href="https://github.com/Guilli12pm/project-one" target="_blank" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="container py-5">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:willpayamonet@gmail.com">willpayamonet [@] gmail [.] com</a></p>
+        <p>Email: <a href="mailto:willpayamonet@gmail.com">willpayamonet@gmail.com</a></p>
         <p>GitHub: <a href="https://github.com/Guilli12pm" target="_blank">github.com/Guilli12pm</a></p>
     </section>
 
@@ -180,28 +189,6 @@
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GitHub API Script -->
-    <script>
-        const username = 'Guilli12pm';
-        fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-            .then(response => response.json())
-            .then(repos => {
-                const container = document.getElementById('projects-container');
-                repos.forEach(repo => {
-                    const col = document.createElement('div');
-                    col.className = 'col-md-4';
-                    col.innerHTML = `
-                        <div class="card project-card">
-                            <div class="card-body">
-                                <h5 class="card-title"><a href="${repo.html_url}" target="_blank">${repo.name}</a></h5>
-                                <p class="card-text">${repo.description || ''}</p>
-                            </div>
-                        </div>`;
-                    container.appendChild(col);
-                });
-            })
-            .catch(error => console.error('Error fetching repos:', error));
-    </script>
 </body>
 
 </html>
